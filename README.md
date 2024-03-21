@@ -45,3 +45,7 @@ This was dreamt up as a method to allow **AI chatbots** to **automate** the **cr
 ## Use
 
 Once installed, you can align devices to grid at any time by clicking **Extensions** > **Builder Code Editor**.
+
+## Documentation
+
+In the [Wiki](./wiki), you will find information on the available functions, as well as lists of usable devices, links, and modules.
