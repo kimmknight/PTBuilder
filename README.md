@@ -30,7 +30,7 @@ Produces:
 
 ![Screenshot](screenshot2.jpg)
 
-**Wait, but why???**
+**But why???**
 
 This was dreamt up as a method to allow **AI chatbots** to **automate** the **creation** of **Packet Tracer networks**.
 
@@ -48,4 +48,4 @@ Once installed, you can align devices to grid at any time by clicking **Extensio
 
 ## Documentation
 
-In the [Wiki](./wiki), you will find information on the available functions, as well as lists of usable devices, links, and modules.
+In the [Wiki](https://github.com/kimmknight/PTBuilder/wiki), you will find information on the available functions, as well as lists of usable devices, links, and modules.
