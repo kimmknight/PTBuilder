@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="bootstrap.bundle.min.js"></script>
+
+    <script src="interface.js"></script>
+
+    <style>
+        
+    </style>
+</head>
+
+<body class="h-100">
+    <div class="h-100 p-3 d-flex flex-column">
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <button class="btn text-primary shadow-none me-1" onclick="executeCode()">Run</button>
+                <button class="btn shadow-none me-1" onclick="copyToClipboard()">Copy</button>
+                <button class="btn shadow-none me-1" onclick="pasteFromClipboard()">Paste</button>
+                <button class="btn text-danger shadow-none" onclick="clearEditor()">Clear</button>
+            </div>
+        </div>
+        <textarea id="codeeditor" class="form-control font-monospace shadow-none flex-grow-1"></textarea>
+    </div>
+</body>
+
+</html>
