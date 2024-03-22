@@ -18,10 +18,9 @@ htmlWindow.prototype.show = function()
 {
     if (webViewManager.getWebView(this.webviewId) == null)
 	{
-		this.webview = webViewManager.createWebView("Builder Code Editor","this-sm:index.html", 600, 400);
+		this.webview = webViewManager.createWebView("Builder Code Editor","this-sm:index.html", 800, 500);
 		this.webviewId = this.webview.getWebViewId() ;
 		this.webview.registerEvent("closed", this, this.windowClosed);
-		this.webview.setGeometry(100,100,600,400); // x position, y position, x size, y size
 		this.webview.setMinimumWidth(400);
 		this.webview.setMinimumHeight(300);
 	}
