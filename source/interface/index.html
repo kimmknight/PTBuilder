@@ -21,16 +21,17 @@
 
 <body class="h-100">
     <div class="h-100 p-3 d-flex flex-column">
-        <div class="d-flex justify-content-between mb-3">
-            <div>
-                <button class="btn text-primary shadow-none me-1" onclick="executeCode()">Run</button>
-                <button class="btn shadow-none me-1" onclick="copyToClipboard()">Copy</button>
-                <button class="btn shadow-none me-1" onclick="pasteFromClipboard()">Paste</button>
-                <button class="btn text-danger shadow-none" onclick="clearEditor()">Clear</button>
-            </div>
+        <div class="mb-3">
+            <button class="btn btn-sm btn-outline-success shadow-none me-1" onclick="executeCode()">Run</button>
+            <button class="btn btn-sm btn-outline-primary shadow-none me-1" onclick="pasteFromClipboard()">Paste</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none me-1" onclick="copyToClipboard()">Copy</button>
+            <button class="btn btn-sm btn-outline-danger shadow-none" onclick="clearEditor()">Clear</button>
         </div>
-        <textarea id="codeeditor" class="form-control font-monospace shadow-none flex-grow-1"></textarea>
+        <textarea id="codeeditor" class="form-control font-monospace shadow-none flex-grow-1" onchange="saveCode()"></textarea>
     </div>
+    <script>
+        loadCode();
+    </script>
 </body>
 
 </html>

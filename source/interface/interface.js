@@ -19,3 +19,14 @@ function executeCode() {
 function clearEditor() {
     document.getElementById("codeeditor").value = "";
 }
+
+function saveCode() {
+    let code = document.getElementById("codeeditor").value;
+    $putData("code", code);
+}
+
+function loadCode() {
+    $getData("code").then((code) => {
+        document.getElementById("codeeditor").value = code;
+    })
+}
