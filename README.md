@@ -44,7 +44,7 @@ This was dreamt up as a method to allow **AI chatbots** to **automate** the **cr
 
 ## Use
 
-Once installed, you can align devices to grid at any time by clicking **Extensions** > **Builder Code Editor**.
+Once installed, you can open the code editor at any time by clicking **Extensions** > **Builder Code Editor**.
 
 ## Documentation
 
