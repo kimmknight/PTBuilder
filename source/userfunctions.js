@@ -39,12 +39,10 @@ configurePcIp = function(deviceName, dhcpEnabled = undefined, ipaddress = undefi
 configureIosDevice = function(deviceName, commands) {
     var device = ipc.network().getDevice(deviceName);
     device.skipBoot();
-    builder.enterGlobalConfigMode(deviceName);
     commandsArray = commands.split("\n");
+    device.enterCommand("!", "global");
     for (var command of commandsArray) {
-        builder.sendIosCommand(deviceName, command);
+        device.enterCommand(command, "");
     }
-    builder.sendIosCommand(deviceName, "end");
-    builder.sendIosCommand(deviceName, "write memory");
-    builder.sendIosCommand(deviceName, "exit");
+    device.enterCommand("write memory", "enable");
 }

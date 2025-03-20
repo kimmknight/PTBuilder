@@ -23,42 +23,6 @@ builder.prototype.menuClicked = function (src, args) {
     window.show();
 };
 
-builder.prototype.enterGlobalConfigMode = function(deviceName) {
-    var mode = "";
-    var count = 0;
-    while (mode != "global") {
-        count++;
-        if (count >= 10) {
-            return false;
-        }
-
-        var cl = ipc.network().getDevice(deviceName).getCommandLine();
-        var mode = cl.getMode();
-
-        if (mode == "") {
-            var prompt = ipc.network().getDevice(deviceName).getCommandLine().getPrompt();
-            if (prompt == "Would you like to enter the initial configuration dialog? [yes/no]: ") {
-                builder.sendIosCommand(deviceName, "no");
-            }
-        } else if (mode == "logout") {
-            builder.sendIosCommand(deviceName, "");
-        } else if (mode == "user") {
-            builder.sendIosCommand(deviceName, "enable");
-        } else if (mode == "enable") {
-            builder.sendIosCommand(deviceName, "configure terminal");
-        } else if (mode != "global") {
-            builder.sendIosCommand(deviceName, "end");
-            builder.sendIosCommand("");
-        }
-    }
-
-    return true;
-}
-
-builder.prototype.sendIosCommand = function(deviceName, command) {
-    ipc.network().getDevice(deviceName).getCommandLine().enterCommand(command);
-}
-
 function main() {
     builder = new builder();
     builder.init();
