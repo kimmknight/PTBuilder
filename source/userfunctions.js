@@ -7,13 +7,25 @@ addDevice = function(deviceName, deviceModel, x, y) {
     var device = ipc.network().getDevice(originalDeviceName);
     device.setName(deviceName);
 
+    device.skipBoot();
+
     return true;
 }
 
 addModule = function(deviceName, slot, model) {
     var device = ipc.network().getDevice(deviceName);
+
+    powerState = device.getPower();
+    device.setPower(false);
+
     var moduleType = allModuleTypes[model];
     result = device.addModule(slot, moduleType, model);
+
+    if (powerState) {
+        device.setPower(true);
+        device.skipBoot();
+    }
+
     if (result != true) { return false; }
 
     return true;
