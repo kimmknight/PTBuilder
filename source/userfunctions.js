@@ -7,7 +7,9 @@ addDevice = function(deviceName, deviceModel, x, y) {
     var device = ipc.network().getDevice(originalDeviceName);
     device.setName(deviceName);
 
-    device.skipBoot();
+    if (deviceType <= 1 || deviceType == 16) {
+        device.skipBoot();
+    }
 
     return true;
 }
