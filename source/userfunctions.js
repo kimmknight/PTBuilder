@@ -60,3 +60,80 @@ configureIosDevice = function(deviceName, commands) {
     }
     device.enterCommand("write memory", "enable");
 }
+
+var deviceTypes = {
+    router: 0,
+    switch: 1,
+    cloud: 2,
+    bridge: 3,
+    hub: 4,
+    repeater: 5,
+    coaxialsplitter: 6,
+    accesspoint: 7,
+    pc: 8,
+    server: 9,
+    printer: 10,
+    wirelessrouter: 11,
+    ipphone: 12,
+    dslmodem: 13,
+    cablemodem: 14,
+    remotenetwork: 15,
+    multilayerswitch: 16,
+    laptop: 17,
+    tabletpc: 18,
+    pda: 19,
+    wirelessenddevice: 20,
+    wiredenddevice: 21,
+    tv: 22,
+    homevoip: 23,
+    analogphone: 24,
+    multiuser: 25,
+    asa: 26,
+    ioe: 27,
+    homegateway: 28,
+    celltower: 29,
+    ciscoaccesspoint: 30,
+    centralofficeserver: 31,
+    embeddedciscoaccesspoint: 32,
+    sniffer: 33,
+    mcu: 34,
+    sbc: 35,
+    thing: 36,
+    mcucomponent: 37,
+    embeddedserver: 38
+}
+
+function getDevices(filter = undefined) {
+    // filter can be a string, number or array of strings/numbers (or nothing)
+    // For example:
+    // "router"
+    // 0
+    // [switch, router, multilayerswitch]
+    // [0, 1, 16]
+
+    if (filter) {
+        if (typeof filter == "string") {
+            filter = [filter];
+        }
+        if (typeof filter == "number") {
+            filter = [filter];
+        }
+        for (var i = 0; i < filter.length; i++) {
+            if (typeof filter[i] == "string") {
+                filter[i] = deviceTypes[filter[i].toLowerCase()];
+            }
+        }
+    }
+    var deviceCount = ipc.network().getDeviceCount();
+    var devices = [];
+    for (var i = 0; i < deviceCount; i++) {
+        var device = ipc.network().getDeviceAt(i);
+        var deviceName = device.getName();
+        var deviceType = device.getType();
+        
+        if (!filter || filter.includes(deviceType)) {
+            devices.push(deviceName);
+        }
+    }
+    return devices;
+}
