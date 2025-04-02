@@ -103,7 +103,7 @@ var deviceTypes = {
     embeddedserver: 38
 }
 
-function getDevices(filter = undefined) {
+function getDevices(filter = undefined, startsWith = "") {
     // filter can be a string, number or array of strings/numbers (or nothing)
     // For example:
     // "router"
@@ -131,7 +131,7 @@ function getDevices(filter = undefined) {
         var deviceName = device.getName();
         var deviceType = device.getType();
         
-        if (!filter || filter.includes(deviceType)) {
+        if ((!filter || filter.includes(deviceType)) && deviceName.startsWith(startsWith)) {
             devices.push(deviceName);
         }
     }
