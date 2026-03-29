@@ -25,7 +25,10 @@ addModule = function(deviceName, slot, model) {
 
     if (powerState) {
         device.setPower(true);
-        device.skipBoot();
+        var deviceType = device.getType();
+        if (deviceType <= 1 || deviceType == 16) {
+            device.skipBoot();
+        }
     }
 
     if (result != true) { return false; }
@@ -52,7 +55,10 @@ configurePcIp = function(deviceName, dhcpEnabled = undefined, ipaddress = undefi
 
 configureIosDevice = function(deviceName, commands) {
     var device = ipc.network().getDevice(deviceName);
-    device.skipBoot();
+    var deviceType = device.getType();
+    if (deviceType <= 1 || deviceType == 16) {
+        device.skipBoot();
+    }
     commandsArray = commands.split("\n");
     device.enterCommand("!", "global");
     for (var command of commandsArray) {
