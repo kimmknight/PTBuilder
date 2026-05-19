@@ -1,6 +1,10 @@
+**NEW:** Check out the [cisco-pt-mcp](https://muhammadbalawal.github.io/cisco-pt-mcp/) extension: Have AI create your Packet Tracer networks! Open source!
+
+---
+
 # Packet Tracer Builder
 
-Packet Tracer Builder is an extension that allows you to use JavaScript code to create networks.
+_Packet Tracer Builder_ is an extension that allows you to use JavaScript code to create networks.
 
 It provides a code editor window and a set of simple functions that can be called to create, configure, and link devices.
 
