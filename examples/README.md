@@ -12,7 +12,7 @@ Small, self-contained scripts. Paste one into **Extensions > Builder Code Editor
 
 ## Notes (tested on Packet Tracer 9.0.1.0858)
 
-- The scripts contain no `//` comments. In testing, a `//` comment stopped every line after it from running, with no error shown.
+- The scripts contain no `//` comments. In testing, a `//` comment stopped every line after it from running, with no error shown. Block comments (`/* ... */`) work, because they have an explicit end.
 - `interface range` commands sent through `configureIosDevice` did not apply, although the same commands work when pasted into the CLI. The examples configure each interface individually instead.
 - After `vlan <id>`, send `exit` before the next command; otherwise the next `vlan` line can be rejected.
 - New routers show the "initial configuration dialog" on the console. `configureIosDevice` applies the config anyway (the console shows `Configured from console by console`), but the dialog is not answered by the script. Type `no` in the CLI once to clear it. Alternatively, power-cycle the router: the examples end with `write memory`, so it boots from the saved startup config straight to the prompt.
