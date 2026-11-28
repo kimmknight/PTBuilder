@@ -36,7 +36,7 @@ Produces:
 
 **But why???**
 
-This was dreamt up as a method to allow **AI chatbots** to **automate** the **creation** of **Packet Tracer networks**.
+This was dreamt up as a method to allow AI to **automate** the creation of **Packet Tracer networks**.
 
 ## Installation
 
@@ -45,6 +45,8 @@ This was dreamt up as a method to allow **AI chatbots** to **automate** the **cr
 2. In Packet Tracer, click **Exensions** > **Scripting** > **Configure PT Script Modules**
 
 3. Click the **Add...** button and locate **Builder.pts**
+
+Click **Start** to make PTBuilder available immediately.
 
 ## Use
 
